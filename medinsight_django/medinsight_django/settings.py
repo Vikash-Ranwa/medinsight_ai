@@ -22,7 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "change_me_for_prod")
 DEBUG = os.environ.get("DEBUG", "True").lower() in ("1", "true", "yes")
-ALLOWED_HOSTS = [h.strip() for h in os.environ.get("ALLOWED_HOSTS", "localhost").split(",")]
+
+# Default ALLOWED_HOSTS if not set - includes common cloud platforms
+hosts_env = os.environ.get("ALLOWED_HOSTS", "")
+if hosts_env:
+    ALLOWED_HOSTS = [h.strip() for h in hosts_env.split(",")]
+else:
+    # Fallback defaults for production deployments  
+    ALLOWED_HOSTS = ["localhost","127.0.0.1","*.onrender.com","*.vercel.app"]
 
 
 
