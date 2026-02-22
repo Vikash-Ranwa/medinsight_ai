@@ -243,4 +243,6 @@ textarea{resize:vertical}
   .card-title{flex-direction:column;gap:4px}
   .hero-card h2{font-size:22px}
   .card h2{font-size:20px}
+  .button-group{flex-direction:column}
+  .button-group .btn{width:100%;text-align:center}
 }
