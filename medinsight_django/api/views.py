@@ -39,6 +39,10 @@ def _upload_to_cloudinary(fileobj, filename, folder="medinsight/tmp"):
 
 @csrf_exempt
 def analyze_prescription(request):
+    if request.method == "OPTIONS":
+        response = HttpResponse()
+        return add_cors_headers(response)
+    
     if request.method != "POST":
         return JsonResponse({"error": "POST only"}, status=405)
     try:
@@ -62,11 +66,13 @@ def analyze_prescription(request):
             data = {"raw_text": resp.text}
 
         data["_cloudinary"] = cloud_resp or {}
-        return JsonResponse(data, status=resp.status_code if resp.status_code < 500 else 200)
+        response = JsonResponse(data, status=resp.status_code if resp.status_code < 500 else 200)
+        return add_cors_headers(response)
 
     except Exception as e:
         traceback.print_exc()
-        return JsonResponse({"error": str(e)}, status=500)
+        response = JsonResponse({"error": str(e)}, status=500)
+        return add_cors_headers(response)
 
 
 def add_cors_headers(response):
@@ -116,6 +122,10 @@ def analyze_cxr(request):
 
 @csrf_exempt
 def analyze_qa(request):
+    if request.method == "OPTIONS":
+        response = HttpResponse()
+        return add_cors_headers(response)
+    
     if request.method != "POST":
         return JsonResponse({"error": "POST only"}, status=405)
     try:
@@ -146,8 +156,10 @@ def analyze_qa(request):
         if cloud_resp:
             data["_cloudinary"] = cloud_resp
 
-        return JsonResponse(data, status=resp.status_code if resp.status_code < 500 else 200)
+        response = JsonResponse(data, status=resp.status_code if resp.status_code < 500 else 200)
+        return add_cors_headers(response)
 
     except Exception as e:
         traceback.print_exc()
-        return JsonResponse({"error": str(e)}, status=500)
+        response = JsonResponse({"error": str(e)}, status=500)
+        return add_cors_headers(response)
