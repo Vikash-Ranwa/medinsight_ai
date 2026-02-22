@@ -3,7 +3,7 @@
 // const API_BASE = "http://127.0.0.1:8001/api";
 // const API_BASE = "https://your-render-app.onrender.com/api";
 
-const API_BASE = "http://127.0.0.1:8000/api";
+const API_BASE = "https://medinsight-ai.onrender.com/api";
 
 function warmupServer() {
   fetch(`${API_BASE}/warmup/`)
