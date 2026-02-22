@@ -193,7 +193,7 @@ async function uploadCXR() {
     const data = await res.json();
 
     const summary = data.result.prediction
-      ? `${data.result.prediction} — Confidence: ${Number(data.result.confidence).toFixed(2)}`
+      ? `${data.result.prediction} — Confidence: ${(Number(data.result.confidence) * 100).toFixed(0)}%`
       : "X-ray Prediction";
 
     const details = data.result.explanation || "No explanation returned.";
