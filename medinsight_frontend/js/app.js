@@ -234,7 +234,7 @@ async function askQA() {
 
 const data = await res.json();
 
-const fullText = data.result?.explanation || "";
+const fullText = data.result?.answer || "";
 
 const lines = fullText.split("\n").filter(l => l.trim() !== "");
 
