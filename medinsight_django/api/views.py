@@ -1,6 +1,6 @@
 import io
 import traceback
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 import requests
@@ -69,8 +69,19 @@ def analyze_prescription(request):
         return JsonResponse({"error": str(e)}, status=500)
 
 
+def add_cors_headers(response):
+    """Add CORS headers to response"""
+    response["Access-Control-Allow-Origin"] = "*"
+    response["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response["Access-Control-Allow-Headers"] = "Content-Type, X-Requested-With"
+    return response
+
 @csrf_exempt
 def analyze_cxr(request):
+    if request.method == "OPTIONS":
+        response = HttpResponse()
+        return add_cors_headers(response)
+    
     if request.method != "POST":
         return JsonResponse({"error": "POST only"}, status=405)
     try:
@@ -94,11 +105,13 @@ def analyze_cxr(request):
             data = {"raw_text": resp.text}
 
         data["_cloudinary"] = cloud_resp or {}
-        return JsonResponse(data, status=resp.status_code if resp.status_code < 500 else 200)
+        response = JsonResponse(data, status=resp.status_code if resp.status_code < 500 else 200)
+        return add_cors_headers(response)
 
     except Exception as e:
         traceback.print_exc()
-        return JsonResponse({"error": str(e)}, status=500)
+        response = JsonResponse({"error": str(e)}, status=500)
+        return add_cors_headers(response)
 
 
 @csrf_exempt

@@ -232,12 +232,16 @@ async function askQA() {
 
     if (!res.ok) throw new Error("Server error");
 
-    const data = await res.json();
+const data = await res.json();
 
-    const summary =
-      (data.result.answer || "Clinical Answer").split("\n")[0];
+const fullText = data.result?.explanation || "";
 
-    const details = data.result.answer || "No answer returned.";
+const lines = fullText.split("\n").filter(l => l.trim() !== "");
+
+const summary = lines[0] || "Explanation";
+
+// Remove first line from body
+const details = lines.slice(1).join("\n");
 
     document.getElementById(target).innerHTML =
       renderResultCard(summary, details);
