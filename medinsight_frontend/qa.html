@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinical Q&A — MedInsight</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="index.html">
+      <div class="logo-mark">MI</div>
+      <div><h1>MedInsight</h1><div class="small-muted">Clinical Q&A</div></div>
+    </a>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <h2>Clinical Q&A</h2>
+      <div class="small-muted">Enter patient history and ask a clinical question — the AI will respond with a short safe explanation.</div>
+
+      <div style="margin-top:12px">
+        <textarea id="history" rows="4" placeholder="Patient history (age, key conditions)..."></textarea>
+        <textarea id="question" rows="3" style="margin-top:10px" placeholder="Ask your clinical question..."></textarea>
+
+        <div style="margin-top:10px">
+          <button class="btn" onclick="askQA()">Ask AI</button>
+        </div>
+
+        <div id="qaResult" class="result" style="min-height:120px;margin-top:16px">
+          <div class="small-muted">Answer will appear here</div>
+        </div>
+
+        <div class="med-warning">Medical warning: This is decision-support information only.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="left">Made with <span class="heart">❤️</span> by Vikash</div>
+    <div style="color:var(--text-muted)">© MedInsight</div>
+  </div>
+</body>
+</html>

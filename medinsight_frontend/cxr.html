@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>X-Ray — MedInsight</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="index.html">
+      <div class="logo-mark">MI</div>
+      <div><h1>MedInsight</h1><div class="small-muted">X-Ray</div></div>
+    </a>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <h2>Chest X-Ray Analysis</h2>
+      <div class="small-muted">Upload a PA/AP chest X-ray image (PNG/JPG). Color photos will be converted automatically.</div>
+
+      <div style="margin-top:12px" class="input-row">
+        <input type="file" id="cxrFile" accept="image/*">
+        <button class="btn" onclick="uploadCXR()">Analyze X-Ray</button>
+      </div>
+
+      <div id="cxrResult" class="result" style="min-height:120px;margin-top:16px">
+        <div class="small-muted">Results will appear here</div>
+      </div>
+
+      <div class="med-warning">Medical warning: Results are supportive; consult a clinician for diagnosis.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="left">Made with <span class="heart">❤️</span> by Vikash</div>
+    <div style="color:var(--text-muted)">© MedInsight</div>
+  </div>
+</body>
+</html>

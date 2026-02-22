@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg: #f0f4f8;
+  --surface: #ffffff;
+  --border: #d1d5db;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-light: #e0e7ff;
+  --success: #10b981;
+  --danger: #ef4444;
+  --radius: 8px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  color:var(--text);
+  background: linear-gradient(135deg, #f5f3ff 0%, #e0e7ff 50%, #dbeafe 100%);
+  background-attachment: fixed;
+  min-height:100vh;
+  line-height:1.6;
+  padding-bottom:80px;
+}
+
+/* NAV */
+.navbar{
+  display:flex;
+  align-items:center;
+  padding:16px 24px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--text);
+}
+.logo-mark{
+  width:36px;height:36px;border-radius:8px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  display:grid;place-items:center;color:white;font-weight:700;font-size:14px;
+}
+.brand h1{font-size:18px;font-weight:700;color:var(--text)}
+
+/* container */
+.container{
+  max-width:800px;margin:0 auto;padding:24px;
+}
+
+/* cards */
+.card{
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(12px);
+  border:1px solid rgba(99,102,241,0.15);
+  border-radius:12px;
+  padding:24px;
+  margin-bottom:16px;
+  box-shadow:0 4px 20px rgba(99,102,241,0.08);
+}
+.card-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:start;
+  margin-bottom:16px;
+}
+.card h2{font-size:22px;font-weight:700;color:#1e3a8a;margin-bottom:6px;letter-spacing:-0.02em}
+.card h3{font-size:18px;font-weight:600;color:#1e40af;margin-bottom:4px}
+.small-muted{color:var(--text-muted);font-size:14px;line-height:1.5}
+
+/* hero */
+.hero-card{margin-bottom:24px}
+.hero-card h2{font-size:28px;margin-bottom:12px;color:#1e3a8a}
+
+/* roles - light skyblue background */
+.roles{display:flex;gap:16px;margin-top:24px}
+.role{
+  flex:1;padding:24px;border-radius:16px;
+  background: whitesmoke;
+  border:2px solid #012bf8;
+  cursor:pointer;display:flex;align-items:center;gap:16px;
+  text-decoration:none;color:inherit;
+  transition:all 0.3s ease;
+  box-shadow:0 4px 15px rgba(125,211,252,0.25);
+}
+.role:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 25px rgba(125,211,252,0.35);
+  border-color: blue;
+  background: white;
+}
+.role h3{font-size:18px;font-weight:700;color:#0369a1;margin-bottom:6px}
+.role p{font-size:14px;color:#075985;margin-top:4px;line-height:1.5}
+
+/* about section */
+.about-section{
+  margin-top:24px;
+  padding:20px;
+  border-radius:12px;
+  background: rgba(197, 244, 242, 0.7);
+  border:1px solid rgba(99,102,241,0.2);
+}
+.about-section h3{
+  font-size:16px;font-weight:600;
+  color:#4338ca;
+  margin-bottom:10px;
+}
+.about-section p{
+  font-size:14px;
+  color:var(--text-muted);
+  line-height:1.7;
+}
+
+/* inputs */
+.input-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+input[type="file"]{font-size:14px}
+input[type="text"], textarea, select{
+  width:100%;padding:12px 14px;border-radius:10px;
+  border:1px solid rgba(99,102,241,0.2);background:rgba(255,255,255,0.9);
+  font-size:14px;font-family:inherit;
+  transition:all 0.2s;
+}
+input[type="text"]:focus, textarea:focus, select:focus{
+  outline:none;border-color:var(--accent);
+  box-shadow:0 0 0 4px rgba(99,102,241,0.15);
+}
+textarea{resize:vertical}
+
+/* buttons */
+.btn{
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color:white;
+  border:none;
+  padding:12px 24px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+  transition:all 0.25s ease;
+  white-space:nowrap;
+  text-decoration:none;
+  display:inline-block;
+  box-shadow:0 4px 15px rgba(99,102,241,0.35);
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(99,102,241,0.45);
+  color:white;
+}
+.btn:active{transform:translateY(0)}
+.btn.secondary{
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  box-shadow:0 4px 15px rgba(99,102,241,0.35);
+}
+.btn.secondary:hover{
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color:white;
+}
+
+/* result */
+.result{
+  padding:18px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter: blur(12px);
+  border:1px solid rgba(99,102,241,0.15);
+  margin-top:16px;
+  box-shadow:0 4px 15px rgba(99,102,241,0.08);
+}
+.result .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.result .summary{font-weight:600;font-size:15px;color:#4338ca}
+.result .details{white-space:pre-wrap;color:var(--text);font-size:14px;line-height:1.7}
+.result .note{color:var(--text-muted);font-size:13px;margin-bottom:8px}
+.result .details ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.result .details li {
+  margin-bottom: 6px;
+}
+
+.result .details strong {
+  color: #1e3a8a;
+}
+
+/* action row */
+.action-row{display:flex;gap:8px;margin-top:12px}
+
+/* warning */
+.med-warning{
+  color:var(--danger);
+  font-size:13px;
+  font-weight:500;
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid rgba(239,68,68,0.2);
+}
+
+/* footer */
+.footer{
+  position:fixed;
+  left:0;right:0;bottom:0;
+  height:56px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 24px;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter: blur(12px);
+  border-top:1px solid var(--border);
+  font-size:13px;
+  color:var(--text-muted);
+}
+.footer .left{display:flex;align-items:center;gap:6px}
+.heart{color:#ef4444}
+
+/* spinner */
+.spinner{
+  display:inline-block;width:16px;height:16px;border:2px solid rgba(99,102,241,0.2);
+  border-top-color:#6366f1;border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* utility */
+.card-links{display:flex;gap:12px;margin-top:16px}
+
+/* responsive */
+@media (max-width:640px){
+  .navbar{padding:12px 16px}
+  .container{padding:16px}
+  .roles{flex-direction:column}
+  .card-links{flex-direction:column}
+  .input-row{flex-direction:column;align-items:stretch}
+  .input-row .btn{width:100%}
+  .card-title{flex-direction:column;gap:4px}
+  .hero-card h2{font-size:22px}
+  .card h2{font-size:20px}
+}

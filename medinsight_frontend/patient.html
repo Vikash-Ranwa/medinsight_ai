@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Patient — MedInsight</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="index.html">
+      <div class="logo-mark">MI</div>
+      <div><h1>MedInsight</h1><div class="small-muted">Patient</div></div>
+    </a>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-title">
+        <div>
+          <h2>Prescription Explainer</h2>
+          <div class="small-muted">Upload a prescription.</div>
+        </div>
+        <div class="small-muted">Upload & explain</div>
+      </div>
+
+      <div class="input-row">
+        <input type="file" id="prescriptionFile" accept="image/*">
+        <button class="btn" onclick="uploadPrescription()">Analyze</button>
+      </div>
+
+      <div id="prescriptionResult" class="result" style="min-height:90px;margin-top:16px">
+        <div class="small-muted">Results will appear here</div>
+      </div>
+
+      <div class="med-warning">Medical warning: This tool provides supportive information only and is not a substitute for professional medical advice.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="left">Made with <span class="heart">❤️</span> by Vikash</div>
+    <div style="color:var(--text-muted)">© MedInsight</div>
+  </div>
+</body>
+</html>
