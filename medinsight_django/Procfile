@@ -1,0 +1,1 @@
+web: gunicorn medinsight_django.wsgi --log-file -
