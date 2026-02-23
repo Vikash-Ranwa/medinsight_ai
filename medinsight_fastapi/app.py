@@ -3,7 +3,6 @@
 # apt update && apt install -y tesseract-ocr
 # pip install pytesseract
 # command to run: python -m uvicorn app:app --host 0.0.0.0 --port 8000
-# http://74.48.78.46:20702/docs
 
 # ============================================================
 # MedInsight AI Engine – FINAL Production FastAPI Backend
