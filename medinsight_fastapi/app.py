@@ -47,7 +47,7 @@ print("Using device:", DEVICE)
 
 from huggingface_hub import login
 # NOTE: keep token here (or load from env/secret manager in production)
-login("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")
+login("HF_Token")
 
 MODEL_ID = "google/medgemma-4b-it"
 
