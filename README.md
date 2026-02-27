@@ -159,7 +159,6 @@ Production deployment model:
 ## 🎬 Demonstration
 
 **Live Deployment:** *https://medinsight-ai-web.vercel.app/*
-**Demo Video:** *temp*
 
 ---
 
